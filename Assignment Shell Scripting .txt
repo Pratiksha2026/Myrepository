@@ -1,0 +1,113 @@
+1.This script counts the number of files in the current directory.
+
+#!/bin/bash
+count=$(ls -1 | wc -l)
+echo "There are $count files in the current directory."
+
+2.A script that performs basic arithmetic operations.
+
+#!/bin/bash
+read -p "Enter first number: " num1
+read -p "Enter second number: " num2
+read -p "Enter operation (+, -, *, /): " op
+
+case $op in
+    +) result=$((num1 + num2)) ;;
+    -) result=$((num1 - num2)) ;;
+    *) result=$((num1 * num2)) ;;
+    /) result=$((num1 / num2)) ;;
+    *) echo "Invalid operation"; exit 1 ;;
+esac
+
+echo "Result: $result"
+
+3.A script that prints all the arguments passed to it.
+
+#!/bin/bash
+echo "You passed $# arguments."
+for arg in "$@"; do
+    echo "$arg"
+done
+
+4. This script generates the Fibonacci series up to a specified number.
+ 
+#!/bin/bash
+read -p "Enter the number of terms: " n
+a=0
+b=1
+
+echo "Fibonacci series:"
+for (( i=0; i<n; i++ )); do
+    echo "$a"
+    fn=$((a + b))
+    a=$b
+    b=$fn
+done
+
+5. 
+
+#!/bin/bash
+# Iterate over an array of fruits
+fruits=("apple" "banana" "cherry" "date")
+for fruit in "${fruits[@]}"
+do
+  echo "Fruit: $fruit"
+done
+
+6.
+
+#!/bin/bash
+# Read lines from a file until end of file
+filename="example.txt"
+while read -r line
+do
+  echo "Line: $line"
+done < "$filename"
+
+7.
+
+#!/bin/bash
+# Calculate the factorial of a number
+echo -n "Enter a number: "
+read num
+fact=1
+i=1
+while [ $i -le $num ]
+do
+  fact=$((fact * i))
+  i=$((i + 1))
+done
+echo "Factorial of $num is: $fact"
+
+
+8.
+#!/bin/bash
+# A script to take user input and loop until 'exit' is entered
+
+while true; do
+    echo "Enter a command (type 'exit' to quit):"
+    read command
+
+    if [ "$command" == "exit" ]; then
+        echo "Exiting..."
+        break
+    else
+        echo "You entered: $command"
+    fi
+done
+
+9.
+#!/bin/bash
+# A script to count the number of words in a file
+
+echo "Enter the file name:"
+read file
+
+if [ ! -f "$file" ]; then
+    echo "File not found!"
+    exit 1
+fi
+
+word_count=$(wc -w < "$file")
+echo "The file '$file' contains $word_count words."
+
