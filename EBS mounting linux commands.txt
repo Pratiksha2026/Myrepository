@@ -1,0 +1,28 @@
+-------------------------linux commands for EBS mounting--------------------------
+
+>login as - ec2-user
+#sudo su
+
+#df -h     -----------> for check hard disk info [like File Explorer]
+
+#lsblk      ------------> for detail Hard Disk Info 
+
+#file -s /dev/xvdf    -------------> for check file system of EBS [ /dev/xvdf] 
+
+#file -s /dev/xvda1       ------------> for check root volume file system 
+
+#mkfs -t xfs /dev/xvdf   ------------> for install XFS driver for EBS [ /dev/xvdf] 
+
+#file -s /dev/xvdf  -------------> for check file system of EBS [ /dev/xvdf] 
+
+**we've two options we can attach  EBS to Home Directory .. OR .. we can attach EBS to any Specific Directory/Folder **
+
+#mkdir myEBS
+#ls
+#mount /dev/xvdf /home/ec2-user/myEBS  ---------------> for mount EBS to yor Specific Folder/Directory 
+
+#lsblk      ------------> for detail Hard Disk Info 
+
+#cd myEBS 
+
+------------------------------------------- Practicle Successfull--------------------------------
